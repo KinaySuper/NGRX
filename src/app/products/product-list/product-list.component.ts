@@ -23,7 +23,7 @@ export class ProductListComponent implements OnInit, OnDestroy {
   selectedProduct: Product | null;
   sub: Subscription;
 
-  constructor(private store : Store<any>, private productService: ProductService) { }
+  constructor(private store: Store<any>, private productService: ProductService) { }
 
   ngOnInit(): void {
     this.sub = this.productService.selectedProductChanges$.subscribe(
@@ -34,13 +34,13 @@ export class ProductListComponent implements OnInit, OnDestroy {
       next: (products: Product[]) => this.products = products,
       error: err => this.errorMessage = err
     });
-    
+    // TOTO: unsubscribe
     this.store.select('products').subscribe(
       products => {
-      if (products){
-        this.displayCode = products.showProductCode;
-      }
-    });
+        if (products) {
+          this.displayCode = products.showProductCode;
+        }
+      });
   }
 
   ngOnDestroy(): void {
@@ -49,7 +49,7 @@ export class ProductListComponent implements OnInit, OnDestroy {
 
   checkChanged(): void {
     this.store.dispatch(
-      {type:'[poduct] Toggle Product Code'}
+      { type: '[poduct] Toggle Product Code' }
     );
     // this.displayCode = !this.displayCode;
   }
