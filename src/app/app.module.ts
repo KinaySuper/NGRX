@@ -17,6 +17,8 @@ import { PageNotFoundComponent } from './home/page-not-found.component';
 /* Feature Modules */
 import { UserModule } from './user/user.module';
 import { StoreModule } from '@ngrx/store';
+import { StoreDevtools } from '@ngrx/store-devtools';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools/src';
 
 @NgModule({
   imports: [
@@ -26,7 +28,10 @@ import { StoreModule } from '@ngrx/store';
     UserModule,
     AppRoutingModule,
     //store reducer(here we have none, so empty object) and optionnal configuration object
-    StoreModule.forRoot({}, {})
+    StoreModule.forRoot({}, {}),
+    StoreDevtoolsModule.instrument({
+      maxAge: 25
+    })
   ],
   declarations: [
     AppComponent,

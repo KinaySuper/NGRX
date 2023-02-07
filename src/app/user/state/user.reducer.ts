@@ -1,5 +1,9 @@
 import { createAction, createReducer, on } from "@ngrx/store";
 
+export interface userState {
+    
+}
+
 export const userReducer = createReducer(
     { hideUserName : true},
     on(createAction('[User] Toggle User Name'), state =>{
