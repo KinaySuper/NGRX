@@ -1,35 +1,20 @@
-import { Product } from '../product';
+import { createAction, props } from "@ngrx/store";
+import { Product } from "../product";
 
-/* NgRx */
-import { createAction, props } from '@ngrx/store';
 
 export const toggleProductCode = createAction(
-  '[Product] Toggle Product Code'
-);
+  '[product] Toggle Product Code'//name of the action then metadata(not needed here)wit props
+)
 
 export const setCurrentProduct = createAction(
   '[Product] Set Current Product',
-  props<{ product: Product }>()
+  props<{ product: Product}>() //the action needs to know wich product to set as the current product => props function
 );
 
 export const clearCurrentProduct = createAction(
-  '[Product] Clear Current Product'
+  '[product] Clear Current Product'
 );
 
 export const initializeCurrentProduct = createAction(
   '[Product] Initialize Current Product'
-);
-
-export const loadProducts = createAction(
-  '[Product] Load'
-);
-
-export const loadProductsSuccess = createAction(
-  '[Product] Load Success',
-  props<{ products: Product[] }>()
-);
-
-export const loadProductsFailure = createAction(
-  '[Product] Load Fail',
-  props<{ error: string }>()
-);
+)
