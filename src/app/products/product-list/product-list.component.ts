@@ -1,10 +1,10 @@
 import { Component, OnInit} from '@angular/core';
-import { Store } from '@ngrx/store';
 
 
 import { Product } from '../product';
 import { ProductService } from '../product.service';
 import { getCurrentProduct, getShowProductCode, State } from '../state/product.reducer';
+import { Store } from '@ngrx/store';
 import * as ProductActions from '../state/product.actions'
 
 @Component({
