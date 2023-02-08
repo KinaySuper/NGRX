@@ -3,23 +3,23 @@ import { Product } from "../product";
 import * as AppState from '../../state/app.state';
 
 export interface State extends AppState.State {
-    products: Productstate;
+    products: ProductState;
 }
 
-export interface Productstate {
+export interface ProductState {
     showProductCode: boolean;
     currentProductId: number;
     products: Product[];
 }
 
-const initialState: Productstate = {
+const initialState: ProductState = {
     showProductCode: true,
     currentProductId: 5,
     products: []
 }
 
 //select a slice of state
-const getProductFeatureState = createFeatureSelector<Productstate>('products');
+const getProductFeatureState = createFeatureSelector<ProductState>('products');
 
 //select a bit of the slice of state that can be accessed down the state tree with the selector
 export const getShowProductCode = createSelector(
@@ -44,11 +44,11 @@ export const getProducts=createSelector(
     state => state.products
 );
 
-export const productReducer = createReducer<Productstate>(
+export const productReducer = createReducer<ProductState>(
     //true to see if our initial state works
     initialState,
     //"on" function for each action that this reducer handles
-    on(createAction('[poduct] Toggle Product Code'), (state): Productstate => {
+    on(createAction('[poduct] Toggle Product Code'), (state): ProductState => {
         console.log('original state: ' + JSON.stringify(state));
         return {
             ...state,

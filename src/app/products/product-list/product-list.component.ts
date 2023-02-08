@@ -35,7 +35,7 @@ export class ProductListComponent implements OnInit, OnDestroy {
       next: (products: Product[]) => this.products = products,
       error: err => this.errorMessage = err
     });
-    // TOTO: unsubscribe
+    // TODO: unsubscribe
     this.store.select(getShowProductCode).subscribe(
       ShowProductCode => this.displayCode = ShowProductCode
       );
