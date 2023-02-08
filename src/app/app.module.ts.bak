@@ -31,9 +31,9 @@ import { environment } from 'src/environments/environment';
     //store reducer(here we have none, so empty object) and optionnal configuration object
     StoreModule.forRoot({}, {}),
     StoreDevtoolsModule.instrument({
-      name: 'APM Demo App DevTools',
-      maxAge: 25,
-      logOnly:environment.production
+      // name: 'APM Demo App DevTools',
+      // maxAge: 25,
+      // logOnly:environment.production
     })
   ],
   declarations: [
